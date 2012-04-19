@@ -1,4 +1,5 @@
 require File.join(File.expand_path(File.join(File.dirname(__FILE__))), '..', 'lib', 'confit')
+require File.join(File.expand_path(File.join(File.dirname(__FILE__))), '..', 'lib', 'confit', 'kernel')
 
 require 'test/unit'
 

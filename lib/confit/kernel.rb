@@ -1,4 +1,4 @@
-require 'confit'
+require File.join(File.expand_path(File.join(File.dirname(__FILE__))), '..', 'confit')
 
 module Kernel
   
