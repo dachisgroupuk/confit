@@ -4,6 +4,7 @@ require 'rubygems'
 class InvalidFileNameError < StandardError; end
 class MissingVariableError < StandardError; end
 class MissingFileError < StandardError; end
+class InvalidEnvironment < StandardError; end
 
 module Confit
   
@@ -60,6 +61,7 @@ module Confit
     if not file.nil?
       if File.exist?(file)
         yaml = env ? YAML.load_file(file)[env] : YAML.load_file(file)
+        raise InvalidEnvironment unless yaml
         self.parse_hash(yaml, @@app_config.send(@@current_file_name))
       else
         raise MissingFileError, "File #{file} does not exist!"
